@@ -52,7 +52,7 @@ export const PracticeView: React.FC<PracticeViewProps> = ({ subjects, onSelectSu
   };
 
   return (
-    <div className="space-y-4 pb-24 px-4 pt-3 max-w-md mx-auto">
+    <div className="space-y-4 pb-24 md:pb-12 px-4 pt-3 md:pt-6 max-w-md md:max-w-3xl lg:max-w-4xl mx-auto">
       {/* Dual Tab Switcher (Matching Screenshot 3 & 4) */}
       <div className="flex bg-slate-800/80 p-1 rounded-2xl border border-slate-700/80 shadow-inner">
         <button

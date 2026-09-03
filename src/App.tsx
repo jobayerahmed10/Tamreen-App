@@ -31,6 +31,7 @@ import { Question, MockExam, ExamAttempt, Subject, PreparationTarget } from './t
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('home');
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [user, setUser] = useState(initialUserProfile);
   const [questions, setQuestions] = useState<Question[]>(sampleQuestions);
   const [subjects, setSubjects] = useState<Subject[]>(subjectsData);
@@ -129,15 +130,20 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0b0f19] text-slate-100 font-['Hind_Siliguri'] flex flex-col justify-between selection:bg-emerald-500 selection:text-white">
-      {/* Top Header with App Name 'তামরীন' on left and Menu Drawer trigger on right */}
+    <div
+      className={`min-h-screen font-['Hind_Siliguri'] flex flex-col justify-between transition-colors selection:bg-emerald-500 selection:text-white ${
+        isDarkMode ? 'bg-[#0b0f19] text-slate-100' : 'bg-[#f8fafc] text-slate-900'
+      }`}
+    >
+      {/* Top Header with App Name 'তামরীন' on left, Desktop Nav in middle, Streak & Dark Mode toggle & Menu Drawer trigger on right */}
       <TopHeader
         appName="তামরীন"
-        targetExam={user.targetExam}
+        streakDays={user.streakDays}
+        isDarkMode={isDarkMode}
+        activeTab={activeTab}
+        onChangeTab={setActiveTab}
+        onToggleDarkMode={() => setIsDarkMode((prev) => !prev)}
         onOpenMenu={() => setIsMenuOpen(true)}
-        onOpenSearch={() => setActiveTab('qbank')}
-        onOpenNotifications={() => setIsFlashNewsOpen(true)}
-        onOpenTargetModal={() => setIsTargetModalOpen(true)}
       />
 
       {/* Main Content Area */}
@@ -148,6 +154,7 @@ export default function App() {
             mockExams={mockExamsData}
             preparationTargets={prepTargets}
             flashNews={flashNewsData}
+            isDarkMode={isDarkMode}
             onChangeTab={setActiveTab}
             onStartExam={handleStartExam}
             onOpenChorchaAI={() => setIsChorchaAIOpen(true)}
@@ -185,13 +192,19 @@ export default function App() {
       </main>
 
       {/* Persistent Bottom Navigation */}
-      <BottomNavigation activeTab={activeTab} onChangeTab={setActiveTab} />
+      <BottomNavigation
+        activeTab={activeTab}
+        onChangeTab={setActiveTab}
+        isDarkMode={isDarkMode}
+      />
 
       {/* Slide-Out Menu Drawer */}
       <MenuDrawer
         isOpen={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
         user={user}
+        isDarkMode={isDarkMode}
+        onToggleDarkMode={() => setIsDarkMode((prev) => !prev)}
         onOpenAdmin={() => setIsAdminOpen(true)}
         onOpenChorchaAI={() => setIsChorchaAIOpen(true)}
         onOpenBookmarks={() => setIsBookmarksOpen(true)}

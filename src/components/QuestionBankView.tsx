@@ -62,7 +62,7 @@ export const QuestionBankView: React.FC<QuestionBankViewProps> = ({
   };
 
   return (
-    <div className="space-y-4 pb-24 px-4 pt-3 max-w-md mx-auto">
+    <div className="space-y-4 pb-24 md:pb-12 px-4 pt-3 md:pt-6 max-w-md md:max-w-3xl lg:max-w-4xl mx-auto">
       {/* Search Input (Matching Screenshot 5) */}
       <div className="relative">
         <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />

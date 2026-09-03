@@ -38,7 +38,7 @@ export const ProgressView: React.FC<ProgressViewProps> = ({ user, subjects }) =>
   ];
 
   return (
-    <div className="space-y-4 pb-24 px-4 pt-3 max-w-md mx-auto">
+    <div className="space-y-4 pb-24 md:pb-12 px-4 pt-3 md:pt-6 max-w-md md:max-w-3xl lg:max-w-4xl mx-auto">
       {/* User Banner Header (Matching Screenshot 6) */}
       <div className="bg-gradient-to-b from-emerald-600/30 via-emerald-950/20 to-slate-900 border border-emerald-500/30 rounded-2xl p-4 text-center space-y-3 relative overflow-hidden">
         {/* Top Header Actions */}
