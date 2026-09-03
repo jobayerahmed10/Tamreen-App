@@ -167,7 +167,10 @@ export default function App() {
         {activeTab === 'archive' && (
           <ArchiveView
             categories={examCategoriesData}
-            onSelectSubCategory={handleSelectSubCategoryArchive}
+            user={user}
+            isDarkMode={isDarkMode}
+            onAskAIExplanation={handleAskAIExplanation}
+            onFinishExam={handleFinishExam}
           />
         )}
 
