@@ -176,8 +176,9 @@ export default function App() {
 
         {activeTab === 'practice' && (
           <PracticeView
-            subjects={subjects}
-            onSelectSubjectPractice={handleStartSubjectPractice}
+            user={user}
+            isDarkMode={isDarkMode}
+            onAskAIExplanation={handleAskAIExplanation}
           />
         )}
 
