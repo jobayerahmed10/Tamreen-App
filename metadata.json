@@ -1,0 +1,6 @@
+{
+  "name": "তামরীন - BCS & Job Exam Prep",
+  "description": "বাংলাদেশের বিসিএস, শিক্ষক নিবন্ধন, ব্যাংক জব ও অন্যান্য প্রতিযোগিতামূলক পরীক্ষার পূর্ণাঙ্গ প্রস্তুতি অ্যাপ।",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
